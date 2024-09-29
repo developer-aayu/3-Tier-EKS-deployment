@@ -4,11 +4,9 @@ metadata:
   namespace: default
   name: mongodb-svc
 spec:
-  type: NodePort
   selector:
     app: mongodb
   ports:
   - name: mongodb-svc
     protocol: TCP
     port: 27017
-    targetPort: 27017

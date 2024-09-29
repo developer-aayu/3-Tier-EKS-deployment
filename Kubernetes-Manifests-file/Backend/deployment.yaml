@@ -2,12 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: api
-  namespace: three-tier
+  namespace: default
   labels: 
     role: api
     env: demo
 spec: 
-  replicas: 2
+  replicas: 1
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -21,11 +21,9 @@ spec:
       labels:
         role: api
     spec:
-      imagePullSecrets:
-      - name: ecr-registry-secret
       containers:
       - name: api
-        image: 407622020962.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        image: aayusharma1410/3-tier-backend:v1
         imagePullPolicy: Always
         env:
           - name: MONGO_CONN_STR
