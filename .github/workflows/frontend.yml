@@ -1,0 +1,13 @@
+name: frontend CI pipeline
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'Kubernetes-Manifests-file/**'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
